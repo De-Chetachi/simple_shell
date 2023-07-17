@@ -8,6 +8,7 @@
 
 int handle_executable(char **argv)
 {
+	struct stat st;
 	/**
 	* check if file exists else handle path
 	* if file exists create a new process
@@ -18,8 +19,11 @@ int handle_executable(char **argv)
 	* return 1
 	*/
 	argv[0] = handle_path(argv[0]);
-	if (argv[0] == NULL)
+	if (stat(argv[0], &st) != 0)
+	{
+		perror(argv[0]);
 		return (1);
+	}
 
 	if (access(argv[0], X_OK) == 0)
 	{

@@ -8,12 +8,17 @@
 void free_double(char **vector)
 {
 	int i;
+	int len = arr_len(vector);
 
 	i = 0;
-	while (vector[i])
+	if(vector)
 	{
-		free(vector[i]);
-		i++;
+		while (i < len)
+		{
+			if (vector[i])
+				free(vector[i]);
+			i++;
+		}
+		free(vector);
 	}
-	free(vector);
 }

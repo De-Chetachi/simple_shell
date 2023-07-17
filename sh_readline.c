@@ -18,7 +18,7 @@ char *read_line(void)
 	{
 		free(std_buff);
 		free_double(path_arr);
-		perror("error getline");
+		perror("Error getline");
 		exit(EXIT_FAILURE);
 	}
 

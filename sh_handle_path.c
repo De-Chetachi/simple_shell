@@ -74,25 +74,21 @@ char *handle_path(char *cmd)
 {
 	struct stat st;
 	char **cmd_arr;
-	char *executable_cmd;
+	char *cmd_temp;
 
 	if (stat(cmd, &st) == 0)
 		return (cmd);
 
 	cmd_arr = path_append(cmd);
 
-	if (cmd_arr == NULL)
-		return (NULL);
-	free(cmd);
+	cmd_temp = cmd_status(cmd_arr);
 
-	executable_cmd = cmd_status(cmd_arr);
-
-	if (executable_cmd == NULL)
+	if (cmd_temp != NULL)
 	{
-		perror(cmd);
-		return (NULL);
+		free(cmd);
+		cmd = cmd_temp;
 	}
 
 	free_double(cmd_arr);
-	return (executable_cmd);
+	return (cmd);
 }
