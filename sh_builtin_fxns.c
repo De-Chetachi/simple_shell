@@ -14,7 +14,9 @@ void my_exit(char **argv)
 	{
 		exit_status = atoi(argv[1]);
 	}
+	free(cmd_str);
 	free_double(argv);
+	free_double(path_arr);
 	exit(exit_status);
 }
 

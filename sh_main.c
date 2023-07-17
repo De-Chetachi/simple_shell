@@ -8,6 +8,8 @@
 void c_handler(int signal)
 {
 	(void)signal;
+	free(cmd_str);
+	free_double(path_arr);
 	exit(0);
 }
 
@@ -15,6 +17,7 @@ void c_handler(int signal)
 * main - entry point of our shell
 * Return: 0 or 1
 */
+char *cmd_str;
 char *path;
 int path_len;
 char **path_arr;

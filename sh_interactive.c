@@ -8,7 +8,6 @@
 void sh_interactive(void)
 {
 	char *prompt = "$ ";
-	char *cmd_str;
 	char **cmd_arr;
 	int i;
 	int determinant = 1;

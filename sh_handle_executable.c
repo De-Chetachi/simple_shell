@@ -3,7 +3,7 @@
 /**
 * handle_executable - handles the execution of executable commands
 * @argv: The command array
-* Return: 0 or 1
+* Return: 1
 */
 
 int handle_executable(char **argv)
@@ -20,7 +20,14 @@ int handle_executable(char **argv)
 	argv[0] = handle_path(argv[0]);
 	if (argv[0] == NULL)
 		return (1);
-	puts(argv[0]);
 
+	if (access(argv[0], X_OK) == 0)
+	{
+		fork_exec(argv);
+	}
+	else
+	{
+		perror(argv[0]);
+	}
 	return (1);
 }
