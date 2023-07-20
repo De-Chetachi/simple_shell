@@ -7,7 +7,6 @@
 
 void sh_uninteractive(void)
 {
-	char *cmd_str;
 	char **cmd_arr;
 	int cmd_arr_len;
 

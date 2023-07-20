@@ -24,6 +24,7 @@ extern char **path_arr;
 void sh_interactive(void);
 void sh_uninteractive(void);
 void c_handler(int signal);
+void z_handler(int signal);
 
 
 /*sh_interactive*/

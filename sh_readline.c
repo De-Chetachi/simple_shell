@@ -16,9 +16,9 @@ char *read_line(void)
 
 	if (bytes == -1)
 	{
+		perror("Error getline");
 		free(std_buff);
 		free_double(path_arr);
-		perror("Error getline");
 		exit(EXIT_FAILURE);
 	}
 

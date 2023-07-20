@@ -8,9 +8,17 @@
 void c_handler(int signal)
 {
 	(void)signal;
+	fflush(stdin);
 	free(cmd_str);
 	free_double(path_arr);
-	exit(0);
+	exit(EXIT_FAILURE);
+}
+void z_handler(int signal)
+{
+	(void)signal;
+	free(cmd_str);
+	free_double(path_arr);
+	exit(EXIT_SUCCESS);
 }
 
 /**
