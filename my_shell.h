@@ -56,4 +56,7 @@ void my_unsetenv(char **argv);
 void free_double(char **vector);
 int arr_len(char **vector);
 
+/*setenv and unsetenv*/
+int _unsetenv(const char *name);                           int _setenv(const char *name, const char *value, int overwrite);
+
 #endif
