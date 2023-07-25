@@ -7,7 +7,7 @@
  */
 int main(void)
 {
-    const char *variableName = "OUR_SHELL_VARIABLE";
+    const char *variableName = "OUR_SHELL_PROJECT_VARIABLE";
     int result;
     char *variableValue = getenv(variableName);
 
