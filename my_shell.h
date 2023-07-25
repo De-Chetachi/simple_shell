@@ -15,6 +15,7 @@
 #include <signal.h>
 
 extern char **environ;
+extern char **environ_size;
 extern char *cmd_str;
 extern int path_len;
 extern char *path;
@@ -57,6 +58,8 @@ void free_double(char **vector);
 int arr_len(char **vector);
 
 /*setenv and unsetenv*/
-int _unsetenv(const char *name);                           int _setenv(const char *name, const char *value, int overwrite);
+int _unsetenv(const char *name);
+int _setenv(const char *name, const char *value, int overwrite);
+int _putenv(const char *string);
 
 #endif
