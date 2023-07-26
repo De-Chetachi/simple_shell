@@ -7,6 +7,7 @@
 */
 int exe_cute(char **argv)
 {
+	int st;
 	/*handle empty commands*/
 	if (argv[0] == NULL)
 	{
@@ -18,8 +19,9 @@ int exe_cute(char **argv)
 		 return (1);
 
 	/*handle executable commands*/
-	 if (handle_executable(argv) == 1)
-		return (1);
+	st = handle_executable(argv);
+	if (st >= 1)
+		return (st);
 
 	return (0);
 }

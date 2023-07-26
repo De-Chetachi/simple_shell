@@ -10,6 +10,8 @@ char **path_append(char *cmd)
 	char **cmd_arr;
 	char *path_temp;
 
+	if (path_arr == NULL)
+		return (NULL);
 	cmd_arr = malloc(sizeof(char *) * path_len);
 	if (cmd_arr == NULL)
 	{
@@ -20,8 +22,8 @@ char **path_append(char *cmd)
 	k = 0;
 	while (path_arr[k] != NULL)
 	{
-		path_size = strlen(path_arr[k]);
-		cmd_len = strlen(cmd);
+		path_size = _strlen(path_arr[k]);
+		cmd_len = _strlen(cmd);
 		path_temp = malloc(path_size + 1 + cmd_len + 1);
 		if (path_temp == NULL)
 		{
@@ -29,9 +31,9 @@ char **path_append(char *cmd)
 			free(cmd_arr);
 			return (NULL);
 		}
-		strcpy(path_temp, path_arr[k]);
-		strcat(path_temp, "/");
-		strcat(path_temp, cmd);
+		_strcpy(path_temp, path_arr[k]);
+		_strcat(path_temp, "/");
+		_strcat(path_temp, cmd);
 		cmd_arr[k] = path_temp;
 		k++;
 	}
@@ -52,11 +54,13 @@ char *cmd_status(char **cmd_arr)
 	int i;
 
 	i = 0;
+	if (cmd_arr == NULL)
+		return NULL;
 	while (cmd_arr[i])
 	{
 		if (stat(cmd_arr[i], &st) == 0)
 		{
-			cmd = strdup(cmd_arr[i]);
+			cmd = _strdup(cmd_arr[i]);
 			return (cmd);
 		}
 		i++;
@@ -80,6 +84,8 @@ char *handle_path(char *cmd)
 		return (cmd);
 
 	cmd_arr = path_append(cmd);
+	if (cmd_arr == NULL)
+		return (cmd);
 
 	cmd_temp = cmd_status(cmd_arr);
 

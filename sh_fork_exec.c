@@ -38,6 +38,10 @@ pid_t fork_exec(char **argv)
 	else
 	{
 		wait(&status);
+		if (WIFEXITED(status))
+		{
+			exit_status = WEXITSTATUS(status);
+		}
 	}
 
 

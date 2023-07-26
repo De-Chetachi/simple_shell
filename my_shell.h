@@ -3,6 +3,7 @@
 
 #define BUFF_SIZE 1024
 
+#include "sh_utils.h"
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/wait.h>
@@ -16,9 +17,14 @@
 
 extern char **environ;
 extern char *cmd_str;
+extern char **cmds;
+extern char **envi;
 extern int path_len;
 extern char *path;
 extern char **path_arr;
+extern int exit_status;
+extern char **av;
+extern int determinant;
 
 /*main*/
 void sh_interactive(void);
@@ -56,8 +62,16 @@ void my_unsetenv(char **argv);
 /*util functions*/
 void free_double(char **vector);
 int arr_len(char **vector);
+char *strchr_str(char *fruit, char *seeds);
+char *_getenv(char *env_name, char **ev);
+char *tok_once(char *str, char *delim);
+char **env_var();
+void error_stat(int stream, char *program, char *cmd);
+void error_exit(int stream, char *program, char **cmd);
+void error_cd(int stream, char *program, char **cmd);
 
 /*setenv and unsetenv*/
-int _unsetenv(const char *name);                           int _setenv(const char *name, const char *value, int overwrite);
+int _unsetenv(const char *name);
+int _setenv(const char *name, const char *value, int overwrite);
 
 #endif

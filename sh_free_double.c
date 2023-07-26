@@ -15,8 +15,7 @@ void free_double(char **vector)
 	{
 		while (i < len)
 		{
-			if (vector[i])
-				free(vector[i]);
+			free(vector[i]);
 			i++;
 		}
 		free(vector);

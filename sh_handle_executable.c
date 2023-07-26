@@ -18,20 +18,22 @@ int handle_executable(char **argv)
 	* else handle error 
 	* return 1
 	*/
+
 	argv[0] = handle_path(argv[0]);
 	if (stat(argv[0], &st) != 0)
 	{
-		perror(argv[0]);
-		return (1);
+		error_stat(STDERR_FILENO, av[0], argv[0]);
+		return (127);
 	}
 
-	if (access(argv[0], X_OK) == 0)
+	if (access(argv[0], X_OK) != 0)
 	{
-		fork_exec(argv);
+		perror(argv[0]);
+		return (2);
 	}
 	else
 	{
-		perror(argv[0]);
+		fork_exec(argv);
 	}
 	return (1);
 }

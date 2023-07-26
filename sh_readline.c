@@ -6,20 +6,19 @@
 * Return: pointer to the bufffer
 */
 
-char *read_line(void)
+char *read_line()
 {
 	char *std_buff = NULL;
-	size_t buff_len = 0;
+	size_t buff_len;
 	ssize_t bytes;
 
 	bytes = getline(&std_buff, &buff_len, stdin);
 
 	if (bytes == -1)
 	{
-		perror("Error getline");
 		free(std_buff);
 		free_double(path_arr);
-		exit(EXIT_FAILURE);
+		exit(EXIT_SUCCESS);
 	}
 
 	if (std_buff[bytes - 1] == '\n')

@@ -31,7 +31,7 @@ int handle_bt_ins(char **argv)
 	i = 0;
 	while (i < bltin_len)
 	{
-		if (strcmp(argv[0], builtin_strs[i]) == 0)
+		if (_strcmp(argv[0], builtin_strs[i]) == 0)
 		{
 			builtin_fxns[i](argv);
 			res = 1;
