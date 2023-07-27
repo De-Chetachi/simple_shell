@@ -9,6 +9,7 @@
 char *_strcpy(char *dest, char *src)
 {
 	char *pDest = dest;
+
 	if (!dest)
 		return (NULL);
 	if (src)
