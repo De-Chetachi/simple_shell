@@ -1,7 +1,7 @@
 #include "my_shell.h"
 
 /**
-* get_line - gets line from standard input and stores it in a buffer
+* read_line - reads line from standard input and stores it in a buffer
 *
 * Return: pointer to the bufffer
 */

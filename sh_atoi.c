@@ -1,5 +1,5 @@
 #include "sh_utils.h"
- 
+
 /**
 * _atoi - converts a string to an integer
 * @s: The pointer to the string to be converted

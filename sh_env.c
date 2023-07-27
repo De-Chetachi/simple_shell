@@ -13,7 +13,7 @@ char **env_var()
 	i = 0;
 	while (environ[i])
 	{
-		env[i] = strdup(environ[i]);
+		env[i] = _strdup(environ[i]);
 		i++;
 	}
 	return (env);
