@@ -4,6 +4,7 @@
 #include "my_shell.h"
 /*return integers*/
 int _strlen(char	*s);
+void _puts(char *str);
 int _putcher(char c);
 char *_strcat(char	*dest,	char	*src);
 char *_strchr(char *s, char c);

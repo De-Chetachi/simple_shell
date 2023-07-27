@@ -73,5 +73,6 @@ void error_cd(int stream, char *program, char **cmd);
 /*setenv and unsetenv*/
 int _unsetenv(const char *name);
 int _setenv(const char *name, const char *value, int overwrite);
-
+void _puts(char *str);
+int _putchar(char c);
 #endif
