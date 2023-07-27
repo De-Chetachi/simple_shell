@@ -42,7 +42,7 @@ void my_env(char **argv)
 
 	while (environ[i])
 	{
-		puts(environ[i]);
+		_puts(environ[i]);
 		i++;
 	}
 }
@@ -120,6 +120,7 @@ void my_setenv(char **argv)
 void my_unsetenv(char **argv)
 {
 	int argc = arr_len(argv);
+
 	if (argc != 2)
 	{
 		perror("invalid number of commands");

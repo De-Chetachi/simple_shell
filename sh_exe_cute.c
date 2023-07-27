@@ -16,7 +16,7 @@ int exe_cute(char **argv)
 
 	/*handle built_ins*/
 	if (handle_bt_ins(argv) == 1)
-		 return (1);
+		return (1);
 
 	/*handle executable commands*/
 	st = handle_executable(argv);

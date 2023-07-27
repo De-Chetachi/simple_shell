@@ -37,7 +37,7 @@ void z_handler(int signal);
 char *read_line(void);
 char **tok_str(char *str, char *delim, int *tok_size);
 int exe_cute(char **argv);
-void signal_free();
+void signal_free(void);
 
 /*sh_uninteractive*/
 

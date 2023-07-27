@@ -15,7 +15,7 @@ int handle_executable(char **argv)
 	* else print error
 	* in the new process chech if the file is an executable
 	* if it is execute it
-	* else handle error 
+	* else handle error
 	* return 1
 	*/
 
