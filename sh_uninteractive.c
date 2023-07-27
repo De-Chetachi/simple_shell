@@ -13,7 +13,7 @@ void sh_uninteractive(void)
 	int cmd_arr_len;
 	ssize_t bytes;
 	int cmd_num, j;
-	
+
 	/*read line from stdin*/
 	while ((bytes = getline(&cmd_str, &cmd_len, stdin)) != -1)
 	{

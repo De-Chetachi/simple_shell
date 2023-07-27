@@ -42,7 +42,7 @@ void my_env(char **argv)
 
 	while (environ[i])
 	{
-		puts(environ[i]);
+		_puts(environ[i]);
 		i++;
 	}
 }

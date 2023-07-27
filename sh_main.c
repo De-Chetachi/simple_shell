@@ -1,4 +1,14 @@
 #include "my_shell.h"
+char *cmd_str = NULL;
+char **cmds;
+char **evi;
+char *path;
+int path_len;
+char **path_arr;
+int exit_status;
+char **av;
+int determinant;
+
 /**
 * c_handler - handles ctrl+c
 * @signal: Signal recieved
@@ -12,28 +22,13 @@ void c_handler(int signal)
 	free_double(path_arr);
 	exit(EXIT_FAILURE);
 }
-void z_handler(int signal)
-{
-	(void)signal;
-	free(cmd_str);
-	free_double(path_arr);
-	exit(EXIT_SUCCESS);
-}
 
 /**
 * main - entry point of our shell
+* @ac: Number of command line args
+* @ag: Command line arguments
 * Return: 0 or 1
 */
-char *cmd_str = NULL;
-char **cmds;
-char **evi;
-char *path;
-int path_len;
-char **path_arr;
-int exit_status;
-char **av;
-int determinant;
-
 int main(int ac, char **ag)
 {
 	av = ag;

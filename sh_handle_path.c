@@ -55,7 +55,7 @@ char *cmd_status(char **cmd_arr)
 
 	i = 0;
 	if (cmd_arr == NULL)
-		return NULL;
+		return (NULL);
 	while (cmd_arr[i])
 	{
 		if (stat(cmd_arr[i], &st) == 0)

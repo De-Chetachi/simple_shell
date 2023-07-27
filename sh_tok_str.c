@@ -15,12 +15,11 @@ int tok_len(char *str, char *delim)
 	char *token_b;
 	int bytes = 1;
 
-
-       	if (str == NULL || delim == NULL)
+	if (str == NULL || delim == NULL)
 		return (i);
-	bits = strlen(str);
+	bits = _strlen(str);
 
-	str_cpy_b = strdup(str);
+	str_cpy_b = _strdup(str);
 	if (str_cpy_b == NULL)
 		return (i);
 
@@ -32,12 +31,9 @@ int tok_len(char *str, char *delim)
 	while (token_b != NULL && i < bits)
 	{
 		*token_b = '\0';
-
-	
 		if (_strcmp(str_cpy_b, "\0") != 0)
 			i++;
 
-	
 		str_cpy_b = token_b + bytes;
 		token_b = strchr_str(str_cpy_b, delim);
 	}
@@ -47,12 +43,13 @@ int tok_len(char *str, char *delim)
 	free(strcpyb_temp);
 
 	return (i);
-
 }
 
 /**
 * tok_str - tokenizes a string
 * @str: Pointer to the string
+* @delim: Deliminating string
+* @tok_size: Pointer to an int fro storing arr_len
 * Return: An array of strings
 */
 
@@ -70,7 +67,7 @@ char **tok_str(char *str, char *delim, int *tok_size)
 		return (NULL);
 	strcpy_temp = str_cpy;
 	*tok_size = tok_len(str, delim);
-	tokens= malloc(sizeof(char *) * (*tok_size));
+	tokens = malloc(sizeof(char *) * (*tok_size));
 	if (tokens == NULL)
 	{
 		free(strcpy_temp);
@@ -83,7 +80,7 @@ char **tok_str(char *str, char *delim, int *tok_size)
 		*token = '\0';
 		if (_strcmp(str_cpy, "\0") != 0)
 		{
-			tokens[i] = strdup(str_cpy);
+			tokens[i] = _strdup(str_cpy);
 			i++;
 		}
 		str_cpy = token + bytes;

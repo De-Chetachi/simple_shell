@@ -9,11 +9,10 @@
 int handle_bt_ins(char **argv)
 {
 	char *builtin_strs[6];
-	void (*builtin_fxns[6])(char **);
-	int i, bltin_len;
 	int res = 0;
+	int i, bltin_len;
 
-
+	void (*builtin_fxns[6])(char **);
 	builtin_strs[0] = "cd";
 	builtin_strs[1]	= "exit";
 	builtin_strs[2]	= "env";
