@@ -2,28 +2,36 @@
 /**
 * my_exit - exits my shell
 * @argv: An array of strings passin in stdin
-* Return: 0 or 1
+* Return: Void
 */
 
 void my_exit(char **argv)
 {
-	int exit_status = 0;
-
+	int exit_stat = exit_status;
 
 	if (argv[1])
 	{
-		exit_status = atoi(argv[1]);
+		if ((argv[1][0] < '0') || (argv[1][0] > '9'))
+		{
+			error_exit(STDERR_FILENO, av[0], argv);
+			exit_stat = 2;
+		}
+		else
+		{
+			exit_stat = _atoi(argv[1]);
+		}
 	}
-	free(cmd_str);
 	free_double(argv);
+	free_double(cmds);
+	free(cmd_str);
 	free_double(path_arr);
-	exit(exit_status);
+	exit(exit_stat);
 }
 
 /**
 * my_env - prints the environment variables
 * @argv: An array of strings passin in stdin
-* Return: 0 or 1
+* Return: Void
 */
 
 void my_env(char **argv)
@@ -42,7 +50,7 @@ void my_env(char **argv)
 /**
 * my_cd - changes my current working directory
 * @argv: An array of strings passin in stdin
-* Return: 0 or 1
+* Return: Void
 */
 
 void my_cd(char **argv)
@@ -56,23 +64,25 @@ void my_cd(char **argv)
 	char *temp_pwd;
 
 	argc = arr_len(argv);
-	temp_pwd = getenv("PWD");
+	temp_pwd = _getenv("PWD", environ);
 	if (argc == 1)
 	{
-		home = getenv("HOME");
+		home = _getenv("HOME", environ);
 		chdir(home);
 	}
 	else if (argc > 1)
 	{
-		if (strcmp(argv[1], "-") == 0)
+		if (_strcmp(argv[1], "-") == 0)
 		{
-			olddir = getenv("OLDPWD");
+			olddir = _getenv("OLDPWD", environ);
 			chdir(olddir);
 		}
 		else
 		{
 			if (chdir(argv[1]) != 0)
-				perror(argv[1]);
+			{
+				error_cd(STDERR_FILENO, av[0], argv);
+			}
 		}
 	}
 	dir = getcwd(dir_buf, dir_size);
@@ -85,7 +95,7 @@ void my_cd(char **argv)
 /**
 * my_setenv - sets a new environment variable or modifies already existing one
 * @argv: An array of strings passin in stdin
-* Return: 0 or 1
+* Return: Void
 */
 
 void my_setenv(char **argv)
@@ -104,13 +114,14 @@ void my_setenv(char **argv)
 /**
 * my_unsetenv - unsets an existing env variable
 * @argv: An array of strings passin in stdin
-* Return: 0 or 1
+* Return: Void
 */
 
 void my_unsetenv(char **argv)
 {
 	int argc = arr_len(argv);
-	if (argc != 3)
+
+	if (argc != 2)
 	{
 		perror("invalid number of commands");
 	}

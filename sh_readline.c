@@ -1,15 +1,15 @@
 #include "my_shell.h"
 
 /**
-* get_line - gets line from standard input and stores it in a buffer
+* read_line - reads line from standard input and stores it in a buffer
 *
 * Return: pointer to the bufffer
 */
 
-char *read_line(void)
+char *read_line()
 {
 	char *std_buff = NULL;
-	size_t buff_len = 0;
+	size_t buff_len;
 	ssize_t bytes;
 
 	bytes = getline(&std_buff, &buff_len, stdin);
@@ -18,8 +18,7 @@ char *read_line(void)
 	{
 		free(std_buff);
 		free_double(path_arr);
-		perror("Error getline");
-		exit(EXIT_FAILURE);
+		exit(EXIT_SUCCESS);
 	}
 
 	if (std_buff[bytes - 1] == '\n')
