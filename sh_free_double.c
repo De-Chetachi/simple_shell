@@ -2,7 +2,7 @@
 /**
 * free_double - frees a two dimensional array
 * @vector: Pointer to array
-* Return: Void
+* Return: nothing
 */
 
 void free_double(char **vector)

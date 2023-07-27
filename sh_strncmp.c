@@ -1,7 +1,7 @@
 #include "sh_utils.h"
 
 /**
-* _strncmp - compares two strings upto n bytes
+* _strncmp - compares two strings upto n bytes.
 * @s1: Pointer to the first string
 * @s2: Pointer to the second string
 * @n: Number of bytes to compare
