@@ -2,7 +2,7 @@
 
 /**
 * _strstr - finds the first occurrence of the substring
-* needle in the string haystack
+* needle in the string haystack.
 * @haystack: A pointer to haystach
 * @needle: A pointer to needle
 * Return: A pointer to the beginning of the located substring

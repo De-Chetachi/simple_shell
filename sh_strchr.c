@@ -1,7 +1,7 @@
 #include "sh_utils.h"
 
 /**
-* _strchr - locates a character in a string
+* _strchr -This function locates a character in a string
 * @s: Pointer to a string
 * @c: Character to be located
 * Return: Pointer to the first occurrence of the character c in the string s

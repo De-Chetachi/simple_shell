@@ -5,13 +5,14 @@
 * @stream:  File descriptor where the eeror is to be printed
 * @program: The first element of argv
 * @cmd: The first element passed on the command line
-* Return: Void
+* Return: nothing
 */
 
 void error_stat(int stream, char *program, char *cmd)
 {
 	char *pg = program;
 	char *cd = cmd;
+
 	if (pg && cd)
 	{
 		while (*pg != '\0')
@@ -51,24 +52,24 @@ void error_cd(int stream, char *program, char **cmd)
 	{
 		cd_a = cd[0];
 		cd_b = cd[1];
-		 while (*pg != '\0')
-		 {
-			 write(stream, pg, 1);
-			 pg++;
-		 }
-		 write(stream, ": 1: ", 5);
-		 while (*cd_a != '\0')
-		 {
-			 write(stream, cd_a, 1);
-			 cd_a++;
-		 }
-		 write(stream, a, aa);
-		 while (*cd_b != '\0')
-		 {
-			 write(stream, cd_b, 1);
-			 cd_b++;
-		 }
-		 write(stream, "\n", 1);
+		while (*pg != '\0')
+		{
+			write(stream, pg, 1);
+			pg++;
+		}
+		write(stream, ": 1: ", 5);
+		while (*cd_a != '\0')
+		{
+			write(stream, cd_a, 1);
+			cd_a++;
+		}
+		write(stream, a, aa);
+		while (*cd_b != '\0')
+		{
+			write(stream, cd_b, 1);
+			cd_b++;
+		}
+		write(stream, "\n", 1);
 	}
 }
 
